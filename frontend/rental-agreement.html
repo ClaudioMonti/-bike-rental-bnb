@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contratto di Noleggio - B&B Bike Rental</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .agreement-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .agreement-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .agreement-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid #4CAF50;
+        }
+
+        .agreement-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .agreement-header h2::after {
+            display: none;
+        }
+
+        .agreement-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .agreement-body {
+            margin-bottom: 2rem;
+        }
+
+        .agreement-body h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #1a1a2e;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem;
+            padding-left: 12px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .agreement-body p,
+        .agreement-body li {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .agreement-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .agreement-body ul li {
+            padding: 6px 0 6px 28px;
+            position: relative;
+        }
+
+        .agreement-body ul li::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #4CAF50, #81c784);
+            border-radius: 50%;
+        }
+
+        .agreement-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 16px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .agreement-fields .form-group {
+            margin-bottom: 0;
+        }
+
+        .field-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Signature area */
+        .signature-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 16px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .signature-section h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .signature-canvas-wrapper {
+            position: relative;
+            border: 2px dashed #ccc;
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            transition: border-color 0.3s ease;
+        }
+
+        .signature-canvas-wrapper:hover,
+        .signature-canvas-wrapper.active {
+            border-color: #4CAF50;
+        }
+
+        #signature-canvas {
+            display: block;
+            width: 100%;
+            height: 180px;
+            cursor: crosshair;
+            touch-action: none;
+        }
+
+        .signature-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #bbb;
+            font-size: 1rem;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .signature-placeholder.hidden {
+            opacity: 0;
+        }
+
+        .signature-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn-clear {
+            background: linear-gradient(135deg, #ff5252, #d32f2f);
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-clear:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
+        }
+
+        /* Checkbox */
+        .agreement-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #fff8e1;
+            border-radius: 12px;
+            border: 1px solid #ffe082;
+        }
+
+        .agreement-checkbox input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-top: 2px;
+            accent-color: #4CAF50;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .agreement-checkbox label {
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        /* Submit */
+        .agreement-submit {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .agreement-submit .btn {
+            min-width: 280px;
+        }
+
+        .btn-disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* Success overlay */
+        .success-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .success-overlay.active {
+            display: flex;
+        }
+
+        .success-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #1a1a2e;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .success-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .agreement-card {
+                padding: 1.5rem;
+            }
+
+            .agreement-fields {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .agreement-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Dark mode */
+        [data-theme="dark"] .agreement-card {
+            background: var(--bg-card);
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .agreement-header h2,
+        [data-theme="dark"] .agreement-body h3,
+        [data-theme="dark"] .signature-section h3 {
+            color: #fff;
+        }
+
+        [data-theme="dark"] .agreement-body p,
+        [data-theme="dark"] .agreement-body li {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .agreement-fields,
+        [data-theme="dark"] .signature-section {
+            background: var(--bg-secondary);
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .signature-canvas-wrapper {
+            border-color: var(--border-color);
+            background: #1a1a1a;
+        }
+
+        [data-theme="dark"] #signature-canvas {
+            background: #1a1a1a;
+        }
+
+        [data-theme="dark"] .agreement-checkbox {
+            background: rgba(255, 248, 225, 0.08);
+            border-color: rgba(255, 224, 130, 0.3);
+        }
+
+        [data-theme="dark"] .agreement-checkbox label {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="dark"] .success-card {
+            background: var(--bg-card);
+        }
+
+        [data-theme="dark"] .success-card h3 {
+            color: #fff;
+        }
+
+        [data-theme="dark"] .success-card p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>🚲 B&B Bike Rental</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="index.html#tariffe" data-i18n="nav.pricing">Tariffe</a></li>
+                    <li><a href="index.html#contatti" data-i18n="nav.contacts">Contatti</a></li>
+                    <li class="lang-selector">
+                        <button id="lang-it" class="lang-circle active" title="Italiano">
+                            <img src="https://flagcdn.com/w40/it.png" alt="Italiano">
+                        </button>
+                        <button id="lang-en" class="lang-circle" title="English">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        </button>
+                    </li>
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle" title="Cambia tema">
+                            <span class="theme-icon-light">☀️</span>
+                            <span class="theme-icon-dark">🌙</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="agreement-container">
+            <div class="agreement-card">
+
+                <!-- Header -->
+                <div class="agreement-header">
+                    <h2 data-i18n="agreement.title">Contratto di Noleggio Bicicletta</h2>
+                    <p data-i18n="agreement.subtitle">Accordo tra il proprietario e l'ospite per il servizio di noleggio biciclette</p>
+                </div>
+
+                <!-- Contract body -->
+                <div class="agreement-body">
+                    <h3 data-i18n="agreement.art1.title">Art. 1 - Oggetto del Contratto</h3>
+                    <p data-i18n="agreement.art1.text">Il presente accordo regola il noleggio di una o più biciclette messe a disposizione dal proprietario della struttura ricettiva (di seguito "Proprietario") all'ospite (di seguito "Cliente") per uso ricreativo e personale durante il periodo di soggiorno.</p>
+
+                    <h3 data-i18n="agreement.art2.title">Art. 2 - Obblighi del Cliente</h3>
+                    <ul>
+                        <li data-i18n="agreement.art2.item1">Utilizzare la bicicletta con diligenza e nel rispetto del Codice della Strada</li>
+                        <li data-i18n="agreement.art2.item2">Indossare il casco protettivo fornito durante l'utilizzo</li>
+                        <li data-i18n="agreement.art2.item3">Restituire la bicicletta nelle stesse condizioni in cui è stata ricevuta</li>
+                        <li data-i18n="agreement.art2.item4">Non cedere la bicicletta a terzi</li>
+                        <li data-i18n="agreement.art2.item5">Utilizzare il lucchetto fornito per assicurare la bicicletta durante le soste</li>
+                        <li data-i18n="agreement.art2.item6">Comunicare tempestivamente al Proprietario qualsiasi anomalia o danno</li>
+                    </ul>
+
+                    <h3 data-i18n="agreement.art3.title">Art. 3 - Responsabilità</h3>
+                    <p data-i18n="agreement.art3.text">Il Cliente è responsabile della bicicletta dal momento del ritiro fino alla riconsegna. Eventuali danni, furti o smarrimenti saranno a carico del Cliente. Il Proprietario declina ogni responsabilità per infortuni o danni a terzi causati durante l'utilizzo della bicicletta.</p>
+
+                    <h3 data-i18n="agreement.art4.title">Art. 4 - Tariffe e Pagamento</h3>
+                    <p data-i18n="agreement.art4.text">Il costo del noleggio è stabilito secondo il tariffario in vigore e deve essere corrisposto al momento del ritiro della bicicletta o tramite i metodi di pagamento indicati (PayPal, bonifico Revolut).</p>
+
+                    <h3 data-i18n="agreement.art5.title">Art. 5 - Restituzione</h3>
+                    <p data-i18n="agreement.art5.text">La bicicletta deve essere restituita entro l'orario concordato. Eventuali ritardi nella riconsegna comporteranno l'addebito della tariffa giornaliera aggiuntiva.</p>
+
+                    <h3 data-i18n="agreement.art6.title">Art. 6 - Danni e Penali</h3>
+                    <ul>
+                        <li data-i18n="agreement.art6.item1">Danni lievi (graffi, usura anomala): addebito fino a 50€</li>
+                        <li data-i18n="agreement.art6.item2">Danni gravi (rottura componenti): addebito fino a 150€</li>
+                        <li data-i18n="agreement.art6.item3">Furto o smarrimento: addebito del valore integrale della bicicletta</li>
+                    </ul>
+
+                    <h3 data-i18n="agreement.art7.title">Art. 7 - Condizioni di Validità</h3>
+                    <p data-i18n="agreement.art7.text">Il noleggio è subordinato alla firma del presente contratto da parte del Cliente e al contestuale pagamento dell'importo dovuto. Il contratto firmato deve essere inviato al Proprietario prima del ritiro della bicicletta.</p>
+                </div>
+
+                <!-- Form fields -->
+                <div class="agreement-fields">
+                    <div class="form-group">
+                        <label for="first-name" data-i18n="agreement.firstName">Nome</label>
+                        <input type="text" id="first-name" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name" data-i18n="agreement.lastName">Cognome</label>
+                        <input type="text" id="last-name" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="agreement-date" data-i18n="agreement.date">Data</label>
+                        <input type="date" id="agreement-date" required>
+                    </div>
+                </div>
+
+                <!-- Signature -->
+                <div class="signature-section">
+                    <h3 data-i18n="agreement.signatureTitle">Firma del Cliente</h3>
+                    <div class="signature-canvas-wrapper" id="canvas-wrapper">
+                        <canvas id="signature-canvas"></canvas>
+                        <span class="signature-placeholder" id="sig-placeholder" data-i18n="agreement.signaturePlaceholder">Firma qui con il dito o il mouse</span>
+                    </div>
+                    <div class="signature-actions">
+                        <button class="btn-clear" id="clear-signature" data-i18n="agreement.clearSignature">Cancella firma</button>
+                    </div>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="agreement-checkbox">
+                    <input type="checkbox" id="accept-terms">
+                    <label for="accept-terms" data-i18n="agreement.acceptTerms">Dichiaro di aver letto, compreso e accettato tutte le condizioni del presente contratto di noleggio. Mi impegno a rispettare le regole sopra indicate e ad assumermi la responsabilità della bicicletta durante il periodo di utilizzo.</label>
+                </div>
+
+                <!-- Submit -->
+                <div class="agreement-submit">
+                    <button class="btn btn-primary btn-large btn-disabled" id="btn-submit" data-i18n="agreement.submit">Firma e Scarica PDF</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success overlay -->
+    <div class="success-overlay" id="success-overlay">
+        <div class="success-card">
+            <div class="success-icon">✅</div>
+            <h3 data-i18n="agreement.successTitle">Contratto Firmato!</h3>
+            <p data-i18n="agreement.successText">Il PDF è stato scaricato. Ricorda di inviarlo firmato al proprietario insieme al pagamento!</p>
+            <a href="index.html" class="btn btn-primary" data-i18n="agreement.backHome">Torna alla Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 B&B Bike Rental. <span data-i18n="footer.rights">Tutti i diritti riservati.</span></p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script>
+    // ==================== AGREEMENT TRANSLATIONS ====================
+    const agreementTranslations = {
+        it: {
+            agreement: {
+                title: "Contratto di Noleggio Bicicletta",
+                subtitle: "Accordo tra il proprietario e l'ospite per il servizio di noleggio biciclette",
+                art1: {
+                    title: "Art. 1 - Oggetto del Contratto",
+                    text: "Il presente accordo regola il noleggio di una o piu' biciclette messe a disposizione dal proprietario della struttura ricettiva (di seguito \"Proprietario\") all'ospite (di seguito \"Cliente\") per uso ricreativo e personale durante il periodo di soggiorno."
+                },
+                art2: {
+                    title: "Art. 2 - Obblighi del Cliente",
+                    item1: "Utilizzare la bicicletta con diligenza e nel rispetto del Codice della Strada",
+                    item2: "Indossare il casco protettivo fornito durante l'utilizzo",
+                    item3: "Restituire la bicicletta nelle stesse condizioni in cui e' stata ricevuta",
+                    item4: "Non cedere la bicicletta a terzi",
+                    item5: "Utilizzare il lucchetto fornito per assicurare la bicicletta durante le soste",
+                    item6: "Comunicare tempestivamente al Proprietario qualsiasi anomalia o danno"
+                },
+                art3: {
+                    title: "Art. 3 - Responsabilita'",
+                    text: "Il Cliente e' responsabile della bicicletta dal momento del ritiro fino alla riconsegna. Eventuali danni, furti o smarrimenti saranno a carico del Cliente. Il Proprietario declina ogni responsabilita' per infortuni o danni a terzi causati durante l'utilizzo della bicicletta."
+                },
+                art4: {
+                    title: "Art. 4 - Tariffe e Pagamento",
+                    text: "Il costo del noleggio e' stabilito secondo il tariffario in vigore e deve essere corrisposto al momento del ritiro della bicicletta o tramite i metodi di pagamento indicati (PayPal, bonifico Revolut)."
+                },
+                art5: {
+                    title: "Art. 5 - Restituzione",
+                    text: "La bicicletta deve essere restituita entro l'orario concordato. Eventuali ritardi nella riconsegna comporteranno l'addebito della tariffa giornaliera aggiuntiva."
+                },
+                art6: {
+                    title: "Art. 6 - Danni e Penali",
+                    item1: "Danni lievi (graffi, usura anomala): addebito fino a 50 EUR",
+                    item2: "Danni gravi (rottura componenti): addebito fino a 150 EUR",
+                    item3: "Furto o smarrimento: addebito del valore integrale della bicicletta"
+                },
+                art7: {
+                    title: "Art. 7 - Condizioni di Validita'",
+                    text: "Il noleggio e' subordinato alla firma del presente contratto da parte del Cliente e al contestuale pagamento dell'importo dovuto. Il contratto firmato deve essere inviato al Proprietario prima del ritiro della bicicletta."
+                },
+                firstName: "Nome",
+                lastName: "Cognome",
+                date: "Data",
+                signatureTitle: "Firma del Cliente",
+                signaturePlaceholder: "Firma qui con il dito o il mouse",
+                clearSignature: "Cancella firma",
+                acceptTerms: "Dichiaro di aver letto, compreso e accettato tutte le condizioni del presente contratto di noleggio. Mi impegno a rispettare le regole sopra indicate e ad assumermi la responsabilita' della bicicletta durante il periodo di utilizzo. Mi impegno inoltre a rinviare il presente contratto firmato unitamente al pagamento.",
+                submit: "Firma e Scarica PDF",
+                successTitle: "Contratto Firmato!",
+                successText: "Il PDF e' stato scaricato. Ricorda di inviarlo firmato al proprietario insieme al pagamento!",
+                backHome: "Torna alla Home"
+            }
+        },
+        en: {
+            agreement: {
+                title: "Bicycle Rental Agreement",
+                subtitle: "Agreement between the owner and the guest for the bicycle rental service",
+                art1: {
+                    title: "Art. 1 - Subject of the Agreement",
+                    text: "This agreement governs the rental of one or more bicycles made available by the owner of the accommodation (hereinafter \"Owner\") to the guest (hereinafter \"Customer\") for recreational and personal use during the stay."
+                },
+                art2: {
+                    title: "Art. 2 - Customer Obligations",
+                    item1: "Use the bicycle with due care and in compliance with traffic regulations",
+                    item2: "Wear the protective helmet provided during use",
+                    item3: "Return the bicycle in the same conditions as received",
+                    item4: "Do not lend the bicycle to third parties",
+                    item5: "Use the provided lock to secure the bicycle during stops",
+                    item6: "Promptly inform the Owner of any malfunction or damage"
+                },
+                art3: {
+                    title: "Art. 3 - Liability",
+                    text: "The Customer is responsible for the bicycle from the moment of collection until return. Any damage, theft, or loss will be charged to the Customer. The Owner disclaims any liability for injuries or damage to third parties caused during the use of the bicycle."
+                },
+                art4: {
+                    title: "Art. 4 - Rates and Payment",
+                    text: "The rental cost is established according to the current price list and must be paid at the time of bicycle collection or through the indicated payment methods (PayPal, Revolut bank transfer)."
+                },
+                art5: {
+                    title: "Art. 5 - Return",
+                    text: "The bicycle must be returned by the agreed time. Any delays in return will result in an additional daily rate charge."
+                },
+                art6: {
+                    title: "Art. 6 - Damages and Penalties",
+                    item1: "Minor damage (scratches, abnormal wear): charge up to EUR 50",
+                    item2: "Major damage (broken components): charge up to EUR 150",
+                    item3: "Theft or loss: charge of the full value of the bicycle"
+                },
+                art7: {
+                    title: "Art. 7 - Conditions of Validity",
+                    text: "The rental is subject to the signing of this agreement by the Customer and the simultaneous payment of the amount due. The signed agreement must be sent to the Owner before collecting the bicycle."
+                },
+                firstName: "First Name",
+                lastName: "Last Name",
+                date: "Date",
+                signatureTitle: "Customer Signature",
+                signaturePlaceholder: "Sign here with your finger or mouse",
+                clearSignature: "Clear signature",
+                acceptTerms: "I declare that I have read, understood and accepted all the conditions of this rental agreement. I commit to following the rules stated above and to taking responsibility for the bicycle during the rental period. I also commit to returning this signed agreement together with the payment.",
+                submit: "Sign and Download PDF",
+                successTitle: "Agreement Signed!",
+                successText: "The PDF has been downloaded. Remember to send it signed to the owner together with the payment!",
+                backHome: "Back to Home"
+            }
+        }
+    };
+
+    // Merge agreement translations into main translations
+    if (typeof translations !== 'undefined') {
+        if (translations.it) Object.assign(translations.it, agreementTranslations.it);
+        if (translations.en) Object.assign(translations.en, agreementTranslations.en);
+    }
+
+    // ==================== LOAD jsPDF DYNAMICALLY ====================
+    let jsPDFReady = false;
+
+    function loadJsPDF() {
+        return new Promise(function(resolve, reject) {
+            if (window.jspdf) { jsPDFReady = true; resolve(); return; }
+            var script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js';
+            script.onload = function() { jsPDFReady = true; resolve(); };
+            script.onerror = function() {
+                // Fallback URL
+                var s2 = document.createElement('script');
+                s2.src = 'https://unpkg.com/jspdf@2.5.2/dist/jspdf.umd.min.js';
+                s2.onload = function() { jsPDFReady = true; resolve(); };
+                s2.onerror = function() { reject(new Error('jsPDF failed to load')); };
+                document.head.appendChild(s2);
+            };
+            document.head.appendChild(script);
+        });
+    }
+
+    // ==================== SIGNATURE CANVAS ====================
+    var canvas, ctx, wrapper, placeholder;
+    var isDrawing = false;
+    var hasSigned = false;
+
+    function initCanvas() {
+        canvas = document.getElementById('signature-canvas');
+        ctx = canvas.getContext('2d');
+        wrapper = document.getElementById('canvas-wrapper');
+        placeholder = document.getElementById('sig-placeholder');
+
+        resizeCanvas();
+        window.addEventListener('resize', function() {
+            if (!hasSigned) resizeCanvas();
+        });
+
+        canvas.addEventListener('mousedown', startDraw);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDraw);
+        canvas.addEventListener('mouseleave', stopDraw);
+        canvas.addEventListener('touchstart', startDraw, { passive: false });
+        canvas.addEventListener('touchmove', draw, { passive: false });
+        canvas.addEventListener('touchend', stopDraw, { passive: false });
+
+        document.getElementById('clear-signature').addEventListener('click', function() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            hasSigned = false;
+            placeholder.classList.remove('hidden');
+            wrapper.classList.remove('active');
+            checkFormValidity();
+        });
+    }
+
+    function resizeCanvas() {
+        var rect = wrapper.getBoundingClientRect();
+        canvas.width = rect.width - 4;
+        canvas.height = 180;
+        ctx.strokeStyle = '#1a1a2e';
+        ctx.lineWidth = 2.5;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+    }
+
+    function getPos(e) {
+        var rect = canvas.getBoundingClientRect();
+        var source = e.touches ? e.touches[0] : e;
+        return {
+            x: (source.clientX - rect.left) * (canvas.width / rect.width),
+            y: (source.clientY - rect.top) * (canvas.height / rect.height)
+        };
+    }
+
+    function startDraw(e) {
+        e.preventDefault();
+        isDrawing = true;
+        hasSigned = true;
+        placeholder.classList.add('hidden');
+        wrapper.classList.add('active');
+        var pos = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+        e.preventDefault();
+        var pos = getPos(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+    }
+
+    function stopDraw(e) {
+        if (isDrawing) {
+            e.preventDefault();
+            isDrawing = false;
+            checkFormValidity();
+        }
+    }
+
+    // ==================== FORM VALIDATION ====================
+    var firstNameEl, lastNameEl, dateFieldEl, acceptBoxEl, submitBtnEl;
+
+    function initForm() {
+        firstNameEl = document.getElementById('first-name');
+        lastNameEl = document.getElementById('last-name');
+        dateFieldEl = document.getElementById('agreement-date');
+        acceptBoxEl = document.getElementById('accept-terms');
+        submitBtnEl = document.getElementById('btn-submit');
+
+        // Auto-fill today
+        var today = new Date();
+        var yyyy = today.getFullYear();
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var dd = String(today.getDate()).padStart(2, '0');
+        dateFieldEl.value = yyyy + '-' + mm + '-' + dd;
+
+        firstNameEl.addEventListener('input', checkFormValidity);
+        lastNameEl.addEventListener('input', checkFormValidity);
+        dateFieldEl.addEventListener('input', checkFormValidity);
+        acceptBoxEl.addEventListener('change', checkFormValidity);
+
+        submitBtnEl.addEventListener('click', generatePDF);
+
+        checkFormValidity();
+    }
+
+    function checkFormValidity() {
+        var valid = firstNameEl.value.trim() !== '' &&
+                    lastNameEl.value.trim() !== '' &&
+                    dateFieldEl.value !== '' &&
+                    acceptBoxEl.checked &&
+                    hasSigned;
+        if (valid) {
+            submitBtnEl.classList.remove('btn-disabled');
+            submitBtnEl.style.pointerEvents = 'auto';
+            submitBtnEl.style.opacity = '1';
+        } else {
+            submitBtnEl.classList.add('btn-disabled');
+            submitBtnEl.style.pointerEvents = 'none';
+            submitBtnEl.style.opacity = '0.5';
+        }
+        return valid;
+    }
+
+    // ==================== PDF GENERATION ====================
+    function generatePDF() {
+        if (!checkFormValidity()) return;
+
+        if (!window.jspdf) {
+            alert('PDF library is loading, please try again in a moment.');
+            loadJsPDF();
+            return;
+        }
+
+        try {
+            var jsPDF = window.jspdf.jsPDF;
+            var doc = new jsPDF('p', 'mm', 'a4');
+            var pageWidth = 210;
+            var margin = 15;
+            var contentWidth = pageWidth - margin * 2;
+            var y = 0;
+
+            var lang = (typeof currentLang !== 'undefined') ? currentLang : 'it';
+            var t = agreementTranslations[lang].agreement;
+
+            // Compact font sizes for single-page layout
+            var TITLE_SIZE = 9;
+            var BODY_SIZE = 8;
+            var LINE_H = 3.5;
+
+            // Header bar
+            doc.setFillColor(26, 26, 46);
+            doc.rect(0, 0, 210, 26, 'F');
+            doc.setFillColor(76, 175, 80);
+            doc.rect(0, 26, 210, 1.5, 'F');
+
+            doc.setTextColor(255, 255, 255);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(14);
+            doc.text('B&B Bike Rental', pageWidth / 2, 10, { align: 'center' });
+            doc.setFontSize(10);
+            doc.text(t.title, pageWidth / 2, 17, { align: 'center' });
+            doc.setFontSize(7.5);
+            doc.setFont('helvetica', 'normal');
+            doc.text(t.subtitle, pageWidth / 2, 23, { align: 'center' });
+
+            y = 32;
+
+            // Article renderer
+            function addArticle(title, content) {
+                doc.setFillColor(76, 175, 80);
+                doc.rect(margin, y - 0.5, 1.5, 4, 'F');
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(TITLE_SIZE);
+                doc.setTextColor(26, 26, 46);
+                doc.text(title, margin + 4, y + 3);
+                y += 6;
+
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(BODY_SIZE);
+                doc.setTextColor(60, 60, 60);
+
+                if (Array.isArray(content)) {
+                    for (var i = 0; i < content.length; i++) {
+                        var lines = doc.splitTextToSize('- ' + content[i], contentWidth - 6);
+                        doc.text(lines, margin + 4, y);
+                        y += lines.length * LINE_H + 0.5;
+                    }
+                } else {
+                    var lines = doc.splitTextToSize(content, contentWidth);
+                    doc.text(lines, margin, y);
+                    y += lines.length * LINE_H;
+                }
+                y += 2.5;
+            }
+
+            addArticle(t.art1.title, t.art1.text);
+            addArticle(t.art2.title, [t.art2.item1, t.art2.item2, t.art2.item3, t.art2.item4, t.art2.item5, t.art2.item6]);
+            addArticle(t.art3.title, t.art3.text);
+            addArticle(t.art4.title, t.art4.text);
+            addArticle(t.art5.title, t.art5.text);
+            addArticle(t.art6.title, [t.art6.item1, t.art6.item2, t.art6.item3]);
+            addArticle(t.art7.title, t.art7.text);
+
+            // Separator
+            y += 2;
+            doc.setDrawColor(76, 175, 80);
+            doc.setLineWidth(0.4);
+            doc.line(margin, y, pageWidth - margin, y);
+            y += 6;
+
+            // Guest info - side by side
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(8.5);
+            doc.setTextColor(26, 26, 46);
+
+            var nameLabel = (lang === 'it') ? 'Nome e Cognome:' : 'Full Name:';
+            var dateLabel = (lang === 'it') ? 'Data:' : 'Date:';
+            var fullName = firstNameEl.value.trim() + ' ' + lastNameEl.value.trim();
+
+            doc.text(nameLabel, margin, y);
+            doc.setFont('helvetica', 'normal');
+            doc.text(fullName, margin + 32, y);
+
+            doc.setFont('helvetica', 'bold');
+            doc.text(dateLabel, pageWidth / 2 + 10, y);
+            doc.setFont('helvetica', 'normal');
+            doc.text(dateFieldEl.value, pageWidth / 2 + 22, y);
+            y += 7;
+
+            // Signature
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(8.5);
+            var sigLabel = (lang === 'it') ? 'Firma del Cliente:' : 'Customer Signature:';
+            doc.text(sigLabel, margin, y);
+            y += 2;
+
+            var sigData = canvas.toDataURL('image/png');
+            doc.addImage(sigData, 'PNG', margin, y, 55, 22);
+
+            // Owner countersign area on the right
+            var ownerLabel = (lang === 'it') ? 'Controfirma Proprietario:' : 'Owner Countersignature:';
+            doc.text(ownerLabel, pageWidth / 2 + 10, y - 2);
+            doc.setDrawColor(180, 180, 180);
+            doc.setLineWidth(0.3);
+            doc.rect(pageWidth / 2 + 10, y, 55, 22);
+            doc.setFontSize(7);
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(180, 180, 180);
+
+            // Footer
+            doc.setFillColor(240, 240, 240);
+            doc.rect(0, 287, 210, 10, 'F');
+            doc.setFontSize(6.5);
+            doc.setTextColor(150, 150, 150);
+            doc.setFont('helvetica', 'normal');
+            doc.text('B&B Bike Rental - Rental Agreement', pageWidth / 2, 292, { align: 'center' });
+
+            // Save
+            var fileName = 'Contratto_Noleggio_' + firstNameEl.value.trim() + '_' + lastNameEl.value.trim() + '_' + dateFieldEl.value + '.pdf';
+            doc.save(fileName);
+
+            // Show success
+            document.getElementById('success-overlay').classList.add('active');
+
+        } catch (err) {
+            console.error('PDF generation error:', err);
+            alert('Errore nella generazione del PDF: ' + err.message);
+        }
+    }
+
+    // Close success on click outside
+    document.addEventListener('click', function(e) {
+        var overlay = document.getElementById('success-overlay');
+        if (e.target === overlay) {
+            overlay.classList.remove('active');
+        }
+    });
+
+    // ==================== INIT ====================
+    // Run init immediately since script is at bottom of body
+    (function init() {
+        // Merge translations and apply
+        if (typeof translations !== 'undefined') {
+            if (translations.it) Object.assign(translations.it, agreementTranslations.it);
+            if (translations.en) Object.assign(translations.en, agreementTranslations.en);
+        }
+        if (typeof applyTranslations === 'function') applyTranslations();
+        if (typeof applyTheme === 'function') applyTheme();
+
+        initCanvas();
+        initForm();
+
+        // Load jsPDF
+        loadJsPDF().then(function() {
+            console.log('jsPDF loaded successfully');
+        }).catch(function(err) {
+            console.error('Failed to load jsPDF:', err);
+        });
+    })();
+    </script>
+</body>
+</html>

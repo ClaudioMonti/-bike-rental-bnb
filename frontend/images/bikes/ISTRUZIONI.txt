@@ -1,0 +1,27 @@
+📸 COME AGGIUNGERE LE FOTO DELLE TUE MOUNTAIN BIKE
+
+1. Scatta foto delle tue 2 mountain bike (preferibilmente sfondo neutro)
+
+2. Rinomina le foto in questo modo:
+   - mountain-bike-1.jpg  (per la prima mountain bike)
+   - mountain-bike-2.jpg  (per la seconda mountain bike)
+
+3. Copia le foto in questa cartella:
+   C:\Users\claud\OneDrive\Desktop\bike-rental-bnb\frontend\images\bikes\
+
+4. Ricarica il browser (F5) e le tue foto appariranno automaticamente!
+
+IMPORTANTE:
+- Usa formato JPG o PNG
+- Dimensioni consigliate: 800x600 pixel o superiore
+- Peso massimo consigliato: 500 KB per foto
+
+Se le foto non appaiono:
+1. Verifica che i nomi file siano corretti (tutto minuscolo, con trattini)
+2. Ricarica la pagina con Ctrl+F5 (refresh forzato)
+3. Controlla che le foto siano nella cartella corretta
+
+ALTERNATIVA VELOCE:
+Puoi anche rinominare le tue foto come:
+- bike-1.jpg
+- bike-2.jpg

@@ -1,0 +1,17 @@
+{
+  "name": "bike-rental-frontend",
+  "version": "1.0.0",
+  "description": "Frontend per sistema noleggio biciclette B&B",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 8080",
+    "dev": "npx live-server --port=8080"
+  },
+  "keywords": ["bike", "rental", "bnb"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  }
+}

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noleggio Biciclette - B&B</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>🚲 B&B Bike Rental</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#come-funziona" data-i18n="nav.howItWorks">Come Funziona</a></li>
+                    <li><a href="#tariffe" data-i18n="nav.pricing">Tariffe</a></li>
+                    <li><a href="#contatti" data-i18n="nav.contacts">Contatti</a></li>
+                    <li><a href="#payment-methods" data-i18n="nav.payments">Pagamenti</a></li>
+                    <li><a href="#percorsi" data-i18n="nav.routes">Percorsi</a></li>
+                    <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+                    <li class="lang-selector">
+                        <button id="lang-it" class="lang-circle active" title="Italiano">
+                            <img src="https://flagcdn.com/w40/it.png" alt="Italiano">
+                        </button>
+                        <button id="lang-en" class="lang-circle" title="English">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="English">
+                        </button>
+                    </li>
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle" title="Cambia tema">
+                            <span class="theme-icon-light">☀️</span>
+                            <span class="theme-icon-dark">🌙</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h2 data-i18n="hero.title">Esplora la Toscana in bicicletta!</h2>
+                <p data-i18n="hero.subtitle">Noleggia una delle nostre biciclette e goditi la tua avventura</p>
+            </div>
+        </section>
+
+        <!-- Come Funziona -->
+        <section id="come-funziona" class="section">
+            <div class="container">
+                <h2 data-i18n="howItWorks.title">Come Funziona</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon">📱</div>
+                        <h3 data-i18n="howItWorks.step1.title">Inquadra il QR Code</h3>
+                        <p data-i18n="howItWorks.step1.desc">Scannerizza il QR code con il tuo smartphone per accedere alla prenotazione.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">💰</div>
+                        <h3 data-i18n="howItWorks.step2.title">Scegli la Tariffa</h3>
+                        <p data-i18n="howItWorks.step2.desc">Seleziona la tariffa più adatta alle tue esigenze.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">💬</div>
+                        <h3 data-i18n="howItWorks.step3.title">Contatta Claudio</h3>
+                        <p data-i18n="howItWorks.step3.desc">Contatta Claudio per accordarvi sulla scelta dell'offerta. I contatti si trovano in fondo alla pagina.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">🔑</div>
+                        <h3 data-i18n="howItWorks.step4.title">Ricevi i Codici</h3>
+                        <p data-i18n="howItWorks.step4.desc">Ti invieremo i codici per sbloccare le catene delle biciclette.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">🚴</div>
+                        <h3 data-i18n="howItWorks.step5.title">Buon Divertimento!</h3>
+                        <p data-i18n="howItWorks.step5.desc">Goditi la tua avventura in bicicletta!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tariffe -->
+        <section id="tariffe" class="section bg-light">
+            <div class="container">
+                <h2 data-i18n="pricing.title">Le Nostre Tariffe</h2>
+                <div class="pricing-cards" id="pricing-list">
+                    <!-- Le tariffe verranno caricate dinamicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Biciclette Disponibili -->
+        <section id="biciclette" class="section">
+            <div class="container">
+                <h2 data-i18n="bikes.title">Le Nostre Biciclette</h2>
+                <div class="bikes-grid" id="bikes-list">
+                    <!-- Le bici verranno caricate dinamicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contatti -->
+        <section id="contatti" class="section">
+            <div class="container">
+                <h2 data-i18n="contacts.title">Contatti</h2>
+                <p style="text-align: center; margin-bottom: 2rem;" data-i18n="contacts.subtitle">Contattaci per prenotare o per qualsiasi informazione</p>
+                <div class="contacts-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <a href="mailto:claudiomonti9720@gmail.com">claudiomonti9720@gmail.com</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <h3 data-i18n="contacts.phone">Telefono</h3>
+                        <a href="tel:+393349209193">+39 334 920 9193</a>
+                        <p class="contact-apps" data-i18n="contacts.phoneApps">WhatsApp, Telegram, SMS, Chiamate</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">🏠</div>
+                        <h3>Airbnb</h3>
+                        <p data-i18n="contacts.airbnb">Contattaci tramite la chat Airbnb</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-i18n="cta.title">Pronto per la tua avventura in bicicletta?</h2>
+                <p data-i18n="cta.subtitle">Prenota ora e inizia a esplorare!</p>
+            </div>
+        </section>
+        <!-- Metodi di Pagamento -->
+        <section id="payment-methods" class="section bg-light">
+            <div class="container">
+                <h2 data-i18n="payments.title">Metodi di Pagamento</h2>
+                <p style="text-align: center; margin-bottom: 2rem;" data-i18n="payments.subtitle">Accettiamo le seguenti modalità di pagamento:</p>
+                <div class="contacts-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">💳</div>
+                        <h3>PayPal</h3>
+                        <a href="https://www.paypal.me/claudiomonti97" target="_blank">paypal.me/claudiomonti97</a>
+                        <p class="contact-apps" data-i18n="payments.paypalAlt">oppure invia a: claudiomonti9720@gmail.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">🏦</div>
+                        <h3 data-i18n="payments.bankTransfer">Bonifico Revolut</h3>
+                        <a href="#">LT85 3250 0471 0063 8127</a>
+                        <p class="contact-apps" data-i18n="payments.accountHolder">Intestatario: Claudio Monti</p>
+                    </div>
+                </div>
+                <!-- Agreement Button -->
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <button class="btn btn-agreement btn-large" id="open-agreement-btn" data-i18n="agreement.openButton">Firma il Contratto</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mappa e Percorsi -->
+        <section id="percorsi" class="section bg-light">
+            <div class="container">
+                <h2 data-i18n="routes.title">Percorsi Consigliati</h2>
+                <p style="text-align: center; margin-bottom: 2rem;" data-i18n="routes.subtitle">Esplora i migliori itinerari della Toscana</p>
+
+                <div class="routes-container">
+                    <div class="routes-list">
+                        <div class="route-card active" onclick="showRoute('montecatini')">
+                            <div class="route-icon">⛲</div>
+                            <div class="route-info">
+                                <h3 data-i18n="routes.route1.name">Montecatini Terme e Alto</h3>
+                                <p data-i18n="routes.route1.desc">Terme storiche e borgo medievale panoramico</p>
+                                <span class="route-details">
+                                    <span>🚴 12 km</span>
+                                    <span data-i18n="routes.route1.time">⏱️ 1-2 ore</span>
+                                    <span data-i18n="routes.route1.level">📈 Media</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="route-card" onclick="showRoute('padule')">
+                            <div class="route-icon">🦆</div>
+                            <div class="route-info">
+                                <h3 data-i18n="routes.route2.name">Padule di Fucecchio</h3>
+                                <p data-i18n="routes.route2.desc">Riserva naturale e birdwatching</p>
+                                <span class="route-details">
+                                    <span>🚴 15 km</span>
+                                    <span data-i18n="routes.route2.time">⏱️ 1-2 ore</span>
+                                    <span data-i18n="routes.route2.level">📈 Facile</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="route-card" onclick="showRoute('lucca')">
+                            <div class="route-icon">🏰</div>
+                            <div class="route-info">
+                                <h3 data-i18n="routes.route3.name">Lucca e le Mura</h3>
+                                <p data-i18n="routes.route3.desc">Città d'arte e mura rinascimentali</p>
+                                <span class="route-details">
+                                    <span>🚴 25 km</span>
+                                    <span data-i18n="routes.route3.time">⏱️ 2-3 ore</span>
+                                    <span data-i18n="routes.route3.level">📈 Facile</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe
+                            id="routes-map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23104.82651051285!2d10.686!3d43.839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a0331dbce7a55%3A0x4094f9b8db52ab0!2s51013%20Chiesina%20Uzzanese%20PT!5e0!3m2!1sit!2sit!4v1706000000000!5m2!1sit!2sit"
+                            width="100%"
+                            height="400"
+                            style="border:0; border-radius: 16px;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section bg-light">
+            <div class="container">
+                <h2 data-i18n="faq.title">Domande Frequenti</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span data-i18n="faq.q1">Il casco è incluso nel noleggio?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq.a1">Sì, il casco è incluso gratuitamente nel noleggio. La sicurezza è la nostra priorità!</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span data-i18n="faq.q2">Quali sono gli orari di ritiro e consegna?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq.a2">Gli orari sono flessibili e da concordare direttamente con Claudio.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span data-i18n="faq.q3">Chi è responsabile delle biciclette?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq.a3">Il cliente è responsabile della bicicletta durante il noleggio. Eventuali danni o furti saranno a carico del cliente.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span data-i18n="faq.q5">Sono inclusi lucchetto e luci?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq.a5">Sì, ogni bicicletta è dotata di lucchetto con codice e luci anteriori e posteriori.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Agreement Modal -->
+    <div class="modal-overlay" id="agreement-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-modal">&times;</span>
+            <div class="agreement-card">
+                <!-- Header -->
+                <div class="agreement-header">
+                    <h2 data-i18n="agreement.title">Contratto di Noleggio Bicicletta</h2>
+                    <p data-i18n="agreement.subtitle">Accordo tra il proprietario e l'ospite per il servizio di noleggio biciclette</p>
+                </div>
+
+                <!-- Contract body -->
+                <div class="agreement-body">
+                    <h3 data-i18n="agreement.art1.title">Art. 1 - Oggetto del Contratto</h3>
+                    <p data-i18n="agreement.art1.text">Il presente accordo regola il noleggio di una o piu' biciclette messe a disposizione dal proprietario della struttura ricettiva (di seguito "Proprietario") all'ospite (di seguito "Cliente") per uso ricreativo e personale durante il periodo di soggiorno.</p>
+
+                    <h3 data-i18n="agreement.art2.title">Art. 2 - Obblighi del Cliente</h3>
+                    <ul>
+                        <li data-i18n="agreement.art2.item1">Utilizzare la bicicletta con diligenza e nel rispetto del Codice della Strada</li>
+                        <li data-i18n="agreement.art2.item2">Indossare il casco protettivo fornito durante l'utilizzo</li>
+                        <li data-i18n="agreement.art2.item3">Restituire la bicicletta nelle stesse condizioni in cui e' stata ricevuta</li>
+                        <li data-i18n="agreement.art2.item4">Non cedere la bicicletta a terzi</li>
+                        <li data-i18n="agreement.art2.item5">Utilizzare il lucchetto fornito per assicurare la bicicletta durante le soste</li>
+                        <li data-i18n="agreement.art2.item6">Comunicare tempestivamente al Proprietario qualsiasi anomalia o danno</li>
+                    </ul>
+
+                    <h3 data-i18n="agreement.art3.title">Art. 3 - Responsabilita'</h3>
+                    <p data-i18n="agreement.art3.text">Il Cliente e' responsabile della bicicletta dal momento del ritiro fino alla riconsegna. Eventuali danni, furti o smarrimenti saranno a carico del Cliente. Il Proprietario declina ogni responsabilita' per infortuni o danni a terzi causati durante l'utilizzo della bicicletta.</p>
+
+                    <h3 data-i18n="agreement.art4.title">Art. 4 - Tariffe e Pagamento</h3>
+                    <p data-i18n="agreement.art4.text">Il costo del noleggio e' stabilito secondo il tariffario in vigore e deve essere corrisposto al momento del ritiro della bicicletta o tramite i metodi di pagamento indicati (PayPal, bonifico Revolut).</p>
+
+                    <h3 data-i18n="agreement.art5.title">Art. 5 - Restituzione</h3>
+                    <p data-i18n="agreement.art5.text">La bicicletta deve essere restituita entro l'orario concordato. Eventuali ritardi nella riconsegna comporteranno l'addebito della tariffa giornaliera aggiuntiva.</p>
+
+                    <h3 data-i18n="agreement.art6.title">Art. 6 - Danni e Penali</h3>
+                    <ul>
+                        <li data-i18n="agreement.art6.item1">Danni lievi (graffi, usura anomala): addebito fino a 50 EUR</li>
+                        <li data-i18n="agreement.art6.item2">Danni gravi (rottura componenti): addebito fino a 150 EUR</li>
+                        <li data-i18n="agreement.art6.item3">Furto o smarrimento: addebito del valore integrale della bicicletta</li>
+                    </ul>
+
+                    <h3 data-i18n="agreement.art7.title">Art. 7 - Condizioni di Validita'</h3>
+                    <p data-i18n="agreement.art7.text">Il noleggio e' subordinato alla firma del presente contratto da parte del Cliente e al contestuale pagamento dell'importo dovuto. Il contratto firmato deve essere inviato al Proprietario prima del ritiro della bicicletta.</p>
+                </div>
+
+                <!-- Form fields -->
+                <div class="agreement-fields">
+                    <div class="form-group">
+                        <label for="first-name" data-i18n="agreement.firstName">Nome</label>
+                        <input type="text" id="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name" data-i18n="agreement.lastName">Cognome</label>
+                        <input type="text" id="last-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="agreement-date" data-i18n="agreement.date">Data</label>
+                        <input type="date" id="agreement-date" required>
+                    </div>
+                </div>
+
+                <!-- Signature -->
+                <div class="signature-section">
+                    <h3 data-i18n="agreement.signatureTitle">Firma del Cliente</h3>
+                    <div class="signature-canvas-wrapper" id="canvas-wrapper">
+                        <canvas id="signature-canvas"></canvas>
+                        <span class="signature-placeholder" id="sig-placeholder" data-i18n="agreement.signaturePlaceholder">Firma qui con il dito o il mouse</span>
+                    </div>
+                    <div class="signature-actions">
+                        <button class="btn-clear" id="clear-signature" data-i18n="agreement.clearSignature">Cancella firma</button>
+                    </div>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="agreement-checkbox">
+                    <input type="checkbox" id="accept-terms">
+                    <label for="accept-terms" data-i18n="agreement.acceptTerms">Dichiaro di aver letto, compreso e accettato tutte le condizioni del presente contratto di noleggio. Mi impegno a rispettare le regole sopra indicate e ad assumermi la responsabilita' della bicicletta durante il periodo di utilizzo. Mi impegno inoltre a rinviare il presente contratto firmato unitamente al pagamento.</label>
+                </div>
+
+                <!-- Submit -->
+                <div class="agreement-submit">
+                    <button class="btn btn-primary btn-large btn-disabled" id="btn-submit" data-i18n="agreement.submit">Firma e Scarica PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success overlay -->
+    <div class="success-overlay" id="success-overlay">
+        <div class="success-card">
+            <div class="success-icon">✅</div>
+            <h3 data-i18n="agreement.successTitle">Contratto Firmato!</h3>
+            <p data-i18n="agreement.successText">Il PDF e' stato scaricato. Ricorda di inviarlo firmato al proprietario insieme al pagamento!</p>
+            <button class="btn btn-primary" id="close-success-btn" data-i18n="agreement.closeSuccess">Chiudi</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 B&B Bike Rental. <span data-i18n="footer.rights">Tutti i diritti riservati.</span></p>
+            <p><span data-i18n="footer.contacts">Contatti:</span> <a href="mailto:claudiomonti9720@gmail.com">claudiomonti9720@gmail.com</a> | Tel: +39 3349209193</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/393349209193?text=Ciao!%20Vorrei%20informazioni%20sul%20noleggio%20biciclette"
+       class="whatsapp-float"
+       target="_blank"
+       title="Contattaci su WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#fff" d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.052 31.2l6.012-1.97A15.877 15.877 0 0 0 16.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.314 22.588c-.386 1.09-1.922 1.994-3.13 2.258-.826.178-1.904.32-5.534-1.19-4.644-1.93-7.632-6.648-7.864-6.954-.222-.306-1.87-2.49-1.87-4.75s1.184-3.37 1.604-3.83c.386-.422.906-.618 1.37-.618.166 0 .316.008.45.014.42.018.632.042.91.706.348.832 1.196 2.912 1.3 3.124.106.212.212.49.084.79-.118.306-.222.442-.434.686-.212.244-.412.432-.624.696-.19.23-.404.476-.168.898.236.416 1.05 1.73 2.256 2.804 1.55 1.38 2.854 1.81 3.258 2.008.306.152.672.128.916-.152.31-.358.694-.95 1.084-1.534.278-.416.628-.468.966-.316.342.144 2.166 1.02 2.536 1.206.37.186.616.278.706.434.092.156.092.898-.294 1.988z"/>
+        </svg>
+    </a>
+
+    <script src="js/translations.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Agreement Modal Script -->
+    <script>
+    (function() {
+        // ==================== LOAD jsPDF DYNAMICALLY ====================
+        var jsPDFReady = false;
+
+        function loadJsPDF() {
+            return new Promise(function(resolve, reject) {
+                if (window.jspdf) { jsPDFReady = true; resolve(); return; }
+                var script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js';
+                script.onload = function() { jsPDFReady = true; resolve(); };
+                script.onerror = function() {
+                    var s2 = document.createElement('script');
+                    s2.src = 'https://unpkg.com/jspdf@2.5.2/dist/jspdf.umd.min.js';
+                    s2.onload = function() { jsPDFReady = true; resolve(); };
+                    s2.onerror = function() { reject(new Error('jsPDF failed to load')); };
+                    document.head.appendChild(s2);
+                };
+                document.head.appendChild(script);
+            });
+        }
+
+        // ==================== MODAL CONTROLS ====================
+        var modal = document.getElementById('agreement-modal');
+        var openBtn = document.getElementById('open-agreement-btn');
+        var closeBtn = document.getElementById('close-modal');
+        var successOverlay = document.getElementById('success-overlay');
+        var closeSuccessBtn = document.getElementById('close-success-btn');
+
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            initCanvas();
+            initForm();
+            applyTranslations();
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            resetForm();
+        }
+
+        function closeSuccess() {
+            successOverlay.classList.remove('active');
+            closeModal();
+        }
+
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        closeSuccessBtn.addEventListener('click', closeSuccess);
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+        });
+
+        successOverlay.addEventListener('click', function(e) {
+            if (e.target === successOverlay) closeSuccess();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (successOverlay.classList.contains('active')) closeSuccess();
+                else if (modal.classList.contains('active')) closeModal();
+            }
+        });
+
+        // ==================== SIGNATURE CANVAS ====================
+        var canvas, ctx, wrapper, placeholder;
+        var isDrawing = false;
+        var hasSigned = false;
+        var canvasInitialized = false;
+
+        function initCanvas() {
+            if (canvasInitialized) return;
+            canvas = document.getElementById('signature-canvas');
+            ctx = canvas.getContext('2d');
+            wrapper = document.getElementById('canvas-wrapper');
+            placeholder = document.getElementById('sig-placeholder');
+
+            resizeCanvas();
+
+            canvas.addEventListener('mousedown', startDraw);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDraw);
+            canvas.addEventListener('mouseleave', stopDraw);
+            canvas.addEventListener('touchstart', startDraw, { passive: false });
+            canvas.addEventListener('touchmove', draw, { passive: false });
+            canvas.addEventListener('touchend', stopDraw, { passive: false });
+
+            document.getElementById('clear-signature').addEventListener('click', clearSignature);
+
+            canvasInitialized = true;
+        }
+
+        function resizeCanvas() {
+            var rect = wrapper.getBoundingClientRect();
+            canvas.width = rect.width - 4;
+            canvas.height = 180;
+            ctx.strokeStyle = '#1a1a2e';
+            ctx.lineWidth = 2.5;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+        }
+
+        function getPos(e) {
+            var rect = canvas.getBoundingClientRect();
+            var source = e.touches ? e.touches[0] : e;
+            return {
+                x: (source.clientX - rect.left) * (canvas.width / rect.width),
+                y: (source.clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+
+        function startDraw(e) {
+            e.preventDefault();
+            isDrawing = true;
+            hasSigned = true;
+            placeholder.classList.add('hidden');
+            wrapper.classList.add('active');
+            var pos = getPos(e);
+            ctx.beginPath();
+            ctx.moveTo(pos.x, pos.y);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            e.preventDefault();
+            var pos = getPos(e);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.stroke();
+        }
+
+        function stopDraw(e) {
+            if (isDrawing) {
+                e.preventDefault();
+                isDrawing = false;
+                checkFormValidity();
+            }
+        }
+
+        function clearSignature() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            hasSigned = false;
+            placeholder.classList.remove('hidden');
+            wrapper.classList.remove('active');
+            checkFormValidity();
+        }
+
+        // ==================== FORM VALIDATION ====================
+        var firstNameEl, lastNameEl, dateFieldEl, acceptBoxEl, submitBtnEl;
+        var formInitialized = false;
+
+        function initForm() {
+            if (formInitialized) return;
+            firstNameEl = document.getElementById('first-name');
+            lastNameEl = document.getElementById('last-name');
+            dateFieldEl = document.getElementById('agreement-date');
+            acceptBoxEl = document.getElementById('accept-terms');
+            submitBtnEl = document.getElementById('btn-submit');
+
+            var today = new Date();
+            var yyyy = today.getFullYear();
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var dd = String(today.getDate()).padStart(2, '0');
+            dateFieldEl.value = yyyy + '-' + mm + '-' + dd;
+
+            firstNameEl.addEventListener('input', checkFormValidity);
+            lastNameEl.addEventListener('input', checkFormValidity);
+            dateFieldEl.addEventListener('input', checkFormValidity);
+            acceptBoxEl.addEventListener('change', checkFormValidity);
+
+            submitBtnEl.addEventListener('click', generatePDF);
+
+            formInitialized = true;
+            checkFormValidity();
+        }
+
+        function resetForm() {
+            if (firstNameEl) firstNameEl.value = '';
+            if (lastNameEl) lastNameEl.value = '';
+            if (acceptBoxEl) acceptBoxEl.checked = false;
+            if (canvas && ctx) clearSignature();
+            checkFormValidity();
+        }
+
+        function checkFormValidity() {
+            if (!firstNameEl || !lastNameEl || !dateFieldEl || !acceptBoxEl || !submitBtnEl) return false;
+            var valid = firstNameEl.value.trim() !== '' &&
+                        lastNameEl.value.trim() !== '' &&
+                        dateFieldEl.value !== '' &&
+                        acceptBoxEl.checked &&
+                        hasSigned;
+            if (valid) {
+                submitBtnEl.classList.remove('btn-disabled');
+                submitBtnEl.style.pointerEvents = 'auto';
+                submitBtnEl.style.opacity = '1';
+            } else {
+                submitBtnEl.classList.add('btn-disabled');
+                submitBtnEl.style.pointerEvents = 'none';
+                submitBtnEl.style.opacity = '0.5';
+            }
+            return valid;
+        }
+
+        // ==================== PDF GENERATION ====================
+        function generatePDF() {
+            if (!checkFormValidity()) return;
+
+            if (!window.jspdf) {
+                alert('PDF library is loading, please try again in a moment.');
+                loadJsPDF();
+                return;
+            }
+
+            try {
+                var jsPDF = window.jspdf.jsPDF;
+                var doc = new jsPDF('p', 'mm', 'a4');
+                var pageWidth = 210;
+                var margin = 15;
+                var contentWidth = pageWidth - margin * 2;
+                var y = 0;
+
+                var lang = (typeof currentLang !== 'undefined') ? currentLang : 'it';
+                var t = translations[lang].agreement;
+
+                var TITLE_SIZE = 9;
+                var BODY_SIZE = 8;
+                var LINE_H = 3.5;
+
+                // Header bar
+                doc.setFillColor(26, 26, 46);
+                doc.rect(0, 0, 210, 26, 'F');
+                doc.setFillColor(76, 175, 80);
+                doc.rect(0, 26, 210, 1.5, 'F');
+
+                doc.setTextColor(255, 255, 255);
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(14);
+                doc.text('B&B Bike Rental', pageWidth / 2, 10, { align: 'center' });
+                doc.setFontSize(10);
+                doc.text(t.title, pageWidth / 2, 17, { align: 'center' });
+                doc.setFontSize(7.5);
+                doc.setFont('helvetica', 'normal');
+                doc.text(t.subtitle, pageWidth / 2, 23, { align: 'center' });
+
+                y = 32;
+
+                function addArticle(title, content) {
+                    doc.setFillColor(76, 175, 80);
+                    doc.rect(margin, y - 0.5, 1.5, 4, 'F');
+                    doc.setFont('helvetica', 'bold');
+                    doc.setFontSize(TITLE_SIZE);
+                    doc.setTextColor(26, 26, 46);
+                    doc.text(title, margin + 4, y + 3);
+                    y += 6;
+
+                    doc.setFont('helvetica', 'normal');
+                    doc.setFontSize(BODY_SIZE);
+                    doc.setTextColor(60, 60, 60);
+
+                    if (Array.isArray(content)) {
+                        for (var i = 0; i < content.length; i++) {
+                            var lines = doc.splitTextToSize('- ' + content[i], contentWidth - 6);
+                            doc.text(lines, margin + 4, y);
+                            y += lines.length * LINE_H + 0.5;
+                        }
+                    } else {
+                        var lines = doc.splitTextToSize(content, contentWidth);
+                        doc.text(lines, margin, y);
+                        y += lines.length * LINE_H;
+                    }
+                    y += 2.5;
+                }
+
+                addArticle(t.art1.title, t.art1.text);
+                addArticle(t.art2.title, [t.art2.item1, t.art2.item2, t.art2.item3, t.art2.item4, t.art2.item5, t.art2.item6]);
+                addArticle(t.art3.title, t.art3.text);
+                addArticle(t.art4.title, t.art4.text);
+                addArticle(t.art5.title, t.art5.text);
+                addArticle(t.art6.title, [t.art6.item1, t.art6.item2, t.art6.item3]);
+                addArticle(t.art7.title, t.art7.text);
+
+                // Separator
+                y += 2;
+                doc.setDrawColor(76, 175, 80);
+                doc.setLineWidth(0.4);
+                doc.line(margin, y, pageWidth - margin, y);
+                y += 6;
+
+                // Guest info
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(8.5);
+                doc.setTextColor(26, 26, 46);
+
+                var nameLabel = (lang === 'it') ? 'Nome e Cognome:' : 'Full Name:';
+                var dateLabel = (lang === 'it') ? 'Data:' : 'Date:';
+                var fullName = firstNameEl.value.trim() + ' ' + lastNameEl.value.trim();
+
+                doc.text(nameLabel, margin, y);
+                doc.setFont('helvetica', 'normal');
+                doc.text(fullName, margin + 32, y);
+
+                doc.setFont('helvetica', 'bold');
+                doc.text(dateLabel, pageWidth / 2 + 10, y);
+                doc.setFont('helvetica', 'normal');
+                doc.text(dateFieldEl.value, pageWidth / 2 + 22, y);
+                y += 7;
+
+                // Signature
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(8.5);
+                var sigLabel = (lang === 'it') ? 'Firma del Cliente:' : 'Customer Signature:';
+                doc.text(sigLabel, margin, y);
+                y += 2;
+
+                var sigData = canvas.toDataURL('image/png');
+                doc.addImage(sigData, 'PNG', margin, y, 55, 22);
+
+                // Owner countersign
+                var ownerLabel = (lang === 'it') ? 'Controfirma Proprietario:' : 'Owner Countersignature:';
+                doc.text(ownerLabel, pageWidth / 2 + 10, y - 2);
+                doc.setDrawColor(180, 180, 180);
+                doc.setLineWidth(0.3);
+                doc.rect(pageWidth / 2 + 10, y, 55, 22);
+
+                // Footer
+                doc.setFillColor(240, 240, 240);
+                doc.rect(0, 287, 210, 10, 'F');
+                doc.setFontSize(6.5);
+                doc.setTextColor(150, 150, 150);
+                doc.setFont('helvetica', 'normal');
+                doc.text('B&B Bike Rental - Rental Agreement', pageWidth / 2, 292, { align: 'center' });
+
+                // Save
+                var fileName = 'Contratto_Noleggio_' + firstNameEl.value.trim() + '_' + lastNameEl.value.trim() + '_' + dateFieldEl.value + '.pdf';
+                doc.save(fileName);
+
+                // Show success
+                successOverlay.classList.add('active');
+
+            } catch (err) {
+                console.error('PDF generation error:', err);
+                alert('Errore nella generazione del PDF: ' + err.message);
+            }
+        }
+
+        // Load jsPDF on page load
+        loadJsPDF().then(function() {
+            console.log('jsPDF loaded successfully');
+        }).catch(function(err) {
+            console.error('Failed to load jsPDF:', err);
+        });
+    })();
+    </script>
+</body>
+</html>
