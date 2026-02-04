@@ -139,7 +139,7 @@ function renderBikes() {
         const translatedStatus = translateBikeStatus(statusTextIt);
 
         card.innerHTML = `
-            <img src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=400"
+            <img src="img/foto-bici.png"
                  alt="${translatedName}">
             <div class="bike-info">
                 <h3>${translatedName}</h3>
