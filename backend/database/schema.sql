@@ -109,14 +109,16 @@ CREATE TABLE IF NOT EXISTS notifications (
 
 -- Inserisci le 2 biciclette
 INSERT INTO bikes (name, description, qr_code, status) VALUES
-('Bici 1 - City Bike', 'Bicicletta da città comoda e veloce', 'BIKE001-QR-CODE', 'available'),
+('Bici 1 - Mountain Bike', 'Mountain bike per percorsi avventurosi', 'BIKE001-QR-CODE', 'available'),
 ('Bici 2 - Mountain Bike', 'Mountain bike per percorsi avventurosi', 'BIKE002-QR-CODE', 'available');
 
 -- Inserisci i prezzi
 INSERT INTO pricing (name, duration_hours, price, description) VALUES
-('Mezza Giornata', 4, 15.00, '€15 per 4 ore'),
-('Giornata Intera', 24, 20.00, '€20 per 24 ore'),
-('Mensile', 720, 120.00, '€120 per 30 giorni');
+('Mezza Giornata', 4, 14.99, '€14.99 per 4 ore'),
+('Giornata Intera', 24, 24.99, '€24.99 per 24 ore'),
+('Settimanale', 168, 49.99, '€49.99 per 7 giorni'),
+('15 Giorni', 360, 99.99, '€99.99 per 15 giorni'),
+('Mensile', 720, 129.99, '€129.99 per 30 giorni');
 
 -- Crea un admin di default (password: admin123 - da cambiare!)
 -- Hash bcrypt di 'admin123': $2b$10$rKZI0YCqGqF.LZzJZqXRnO7rqXHqV5qHZQXqJZqZQXqJZqZQXqJZq

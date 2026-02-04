@@ -44,12 +44,14 @@ const translations = {
                 "Mezza Giornata": "Mezza Giornata",
                 "Giornata Intera": "Giornata Intera",
                 "Settimanale": "Settimanale",
+                "15 Giorni": "15 Giorni",
                 "Mensile": "Mensile"
             },
             durations: {
                 "4 ore": "4 ore",
                 "24 ore": "24 ore",
                 "7 giorni": "7 giorni",
+                "15 giorni": "15 giorni",
                 "30 giorni": "30 giorni"
             }
         },
@@ -60,7 +62,8 @@ const translations = {
                 "Bici 2 - Mountain Bike": "Bici 2 - Mountain Bike"
             },
             descriptions: {
-                "Mountain bike per percorsi avventurosi": "Mountain bike per percorsi avventurosi"
+                "Mountain bike per percorsi avventurosi": "Mountain bike per percorsi avventurosi",
+                "Bicicletta da città comoda e veloce": "Bicicletta da città comoda e veloce"
             },
             status: {
                 "Disponibile": "Disponibile",
@@ -235,12 +238,14 @@ const translations = {
                 "Mezza Giornata": "Half Day",
                 "Giornata Intera": "Full Day",
                 "Settimanale": "Weekly",
+                "15 Giorni": "15 Days",
                 "Mensile": "Monthly"
             },
             durations: {
                 "4 ore": "4 hours",
                 "24 ore": "24 hours",
                 "7 giorni": "7 days",
+                "15 giorni": "15 days",
                 "30 giorni": "30 days"
             }
         },
@@ -251,7 +256,8 @@ const translations = {
                 "Bici 2 - Mountain Bike": "Bike 2 - Mountain Bike"
             },
             descriptions: {
-                "Mountain bike per percorsi avventurosi": "Mountain bike for adventurous trails"
+                "Mountain bike per percorsi avventurosi": "Mountain bike for adventurous trails",
+                "Bicicletta da città comoda e veloce": "Comfortable and fast city bike"
             },
             status: {
                 "Disponibile": "Available",

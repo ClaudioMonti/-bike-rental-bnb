@@ -2,9 +2,45 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const db = require('./utils/database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Aggiorna tariffe e biciclette all'avvio
+async function syncData() {
+    try {
+        // Aggiorna tariffe
+        await db.run('DELETE FROM pricing');
+        const plans = [
+            ['Mezza Giornata', 4, 14.99, '€14.99 per 4 ore'],
+            ['Giornata Intera', 24, 24.99, '€24.99 per 24 ore'],
+            ['Settimanale', 168, 49.99, '€49.99 per 7 giorni'],
+            ['15 Giorni', 360, 99.99, '€99.99 per 15 giorni'],
+            ['Mensile', 720, 129.99, '€129.99 per 30 giorni']
+        ];
+        for (const [name, hours, price, desc] of plans) {
+            await db.run(
+                'INSERT INTO pricing (name, duration_hours, price, description, is_active) VALUES (?, ?, ?, ?, 1)',
+                [name, hours, price, desc]
+            );
+        }
+        console.log('✓ Tariffe aggiornate');
+
+        // Aggiorna biciclette (nome e descrizione)
+        await db.run(
+            "UPDATE bikes SET name = 'Bici 1 - Mountain Bike', description = 'Mountain bike per percorsi avventurosi' WHERE qr_code = 'BIKE001-QR-CODE'"
+        );
+        await db.run(
+            "UPDATE bikes SET name = 'Bici 2 - Mountain Bike', description = 'Mountain bike per percorsi avventurosi' WHERE qr_code = 'BIKE002-QR-CODE'"
+        );
+        console.log('✓ Biciclette aggiornate');
+    } catch (err) {
+        console.error('Errore sync dati:', err.message);
+    }
+}
+
+syncData();
 
 // Middleware
 app.use(cors());

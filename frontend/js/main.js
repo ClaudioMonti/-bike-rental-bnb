@@ -82,6 +82,8 @@ function renderPricing() {
             durationText = '24 ore';
         } else if (plan.duration_hours === 168) {
             durationText = '7 giorni';
+        } else if (plan.duration_hours === 360) {
+            durationText = '15 giorni';
         } else if (plan.duration_hours === 720) {
             durationText = '30 giorni';
         }
