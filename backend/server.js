@@ -15,9 +15,10 @@ async function syncData() {
         const plans = [
             ['Mezza Giornata', 4, 14.99, '€14.99 per 4 ore'],
             ['Giornata Intera', 24, 24.99, '€24.99 per 24 ore'],
-            ['Settimanale', 168, 49.99, '€49.99 per 7 giorni'],
-            ['15 Giorni', 360, 99.99, '€99.99 per 15 giorni'],
-            ['Mensile', 720, 129.99, '€129.99 per 30 giorni']
+            ['3 Giorni', 72, 49.99, '€49.99 per 3 giorni'],
+            ['Settimanale', 168, 69.99, '€69.99 per 7 giorni'],
+            ['15 Giorni', 360, 119.99, '€119.99 per 15 giorni'],
+            ['Mensile', 720, 149.99, '€149.99 per 30 giorni']
         ];
         for (const [name, hours, price, desc] of plans) {
             await db.run(
