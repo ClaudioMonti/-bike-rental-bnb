@@ -43,6 +43,7 @@ const translations = {
             plans: {
                 "Mezza Giornata": "Mezza Giornata",
                 "Giornata Intera": "Giornata Intera",
+                "3 Giorni": "3 Giorni",
                 "Settimanale": "Settimanale",
                 "15 Giorni": "15 Giorni",
                 "Mensile": "Mensile"
@@ -50,6 +51,7 @@ const translations = {
             durations: {
                 "4 ore": "4 ore",
                 "24 ore": "24 ore",
+                "3 giorni": "3 giorni",
                 "7 giorni": "7 giorni",
                 "15 giorni": "15 giorni",
                 "30 giorni": "30 giorni"
@@ -237,6 +239,7 @@ const translations = {
             plans: {
                 "Mezza Giornata": "Half Day",
                 "Giornata Intera": "Full Day",
+                "3 Giorni": "3 Days",
                 "Settimanale": "Weekly",
                 "15 Giorni": "15 Days",
                 "Mensile": "Monthly"
@@ -244,6 +247,7 @@ const translations = {
             durations: {
                 "4 ore": "4 hours",
                 "24 ore": "24 hours",
+                "3 giorni": "3 days",
                 "7 giorni": "7 days",
                 "15 giorni": "15 days",
                 "30 giorni": "30 days"
