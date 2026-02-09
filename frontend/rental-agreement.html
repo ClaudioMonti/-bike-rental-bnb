@@ -349,7 +349,12 @@
                 <div class="logo">
                     <h1>🚲 B&B Bike Rental</h1>
                 </div>
-                <ul class="nav-links">
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
                     <li><a href="index.html" data-i18n="nav.home">Home</a></li>
                     <li><a href="index.html#tariffe" data-i18n="nav.pricing">Tariffe</a></li>
                     <li><a href="index.html#contatti" data-i18n="nav.contacts">Contatti</a></li>
@@ -475,6 +480,25 @@
         </div>
     </footer>
 
+    <script>
+    // Hamburger menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        var hamburger = document.getElementById('hamburger-btn');
+        var navLinks = document.getElementById('nav-links');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('open');
+            });
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('open');
+                });
+            });
+        }
+    });
+    </script>
     <script src="js/translations.js"></script>
     <script>
     // ==================== AGREEMENT TRANSLATIONS ====================
