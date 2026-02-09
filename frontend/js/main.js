@@ -138,8 +138,10 @@ function renderBikes() {
         const translatedDesc = translateBikeDescription(bike.description || 'Mountain bike per percorsi avventurosi');
         const translatedStatus = translateBikeStatus(statusTextIt);
 
+        const bikeImage = bike.name.includes('2') ? 'img/foto-bici-2.png' : 'img/foto-bici.png';
+
         card.innerHTML = `
-            <img src="img/foto-bici.png"
+            <img src="${bikeImage}"
                  alt="${translatedName}">
             <div class="bike-info">
                 <h3>${translatedName}</h3>

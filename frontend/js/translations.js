@@ -167,7 +167,7 @@ const translations = {
             },
             art4: {
                 title: "Art. 4 - Tariffe e Pagamento",
-                text: "Il costo del noleggio e' stabilito secondo il tariffario in vigore e deve essere corrisposto al momento del ritiro della bicicletta o tramite i metodi di pagamento indicati (PayPal, bonifico Revolut)."
+                text: "Il costo del noleggio e' stabilito secondo il tariffario in vigore e deve essere corrisposto al momento del ritiro della bicicletta o tramite i metodi di pagamento indicati (PayPal, bonifico Revolut). Il Cliente deve inoltre inviare una foto di un documento di identita' in corso di validita'."
             },
             art5: {
                 title: "Art. 5 - Restituzione",
@@ -177,7 +177,7 @@ const translations = {
                 title: "Art. 6 - Danni e Penali",
                 item1: "Danni lievi (graffi, usura anomala): addebito fino a 50 EUR",
                 item2: "Danni gravi (rottura componenti): addebito fino a 150 EUR",
-                item3: "Furto o smarrimento: addebito del valore integrale della bicicletta"
+                item3: "Furto o smarrimento: addebito di 500 EUR"
             },
             art7: {
                 title: "Art. 7 - Condizioni di Validita'",
@@ -363,7 +363,7 @@ const translations = {
             },
             art4: {
                 title: "Art. 4 - Rates and Payment",
-                text: "The rental cost is established according to the current price list and must be paid at the time of bicycle collection or through the indicated payment methods (PayPal, Revolut bank transfer)."
+                text: "The rental cost is established according to the current price list and must be paid at the time of bicycle collection or through the indicated payment methods (PayPal, Revolut bank transfer). The Customer must also send a photo of a valid identity document."
             },
             art5: {
                 title: "Art. 5 - Return",
@@ -373,7 +373,7 @@ const translations = {
                 title: "Art. 6 - Damages and Penalties",
                 item1: "Minor damage (scratches, abnormal wear): charge up to EUR 50",
                 item2: "Major damage (broken components): charge up to EUR 150",
-                item3: "Theft or loss: charge of the full value of the bicycle"
+                item3: "Theft or loss: charge of EUR 500"
             },
             art7: {
                 title: "Art. 7 - Conditions of Validity",
