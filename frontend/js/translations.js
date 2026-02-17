@@ -55,7 +55,8 @@ const translations = {
                 "7 giorni": "7 giorni",
                 "15 giorni": "15 giorni",
                 "30 giorni": "30 giorni"
-            }
+            },
+            perBikeNote: "* I prezzi si riferiscono al noleggio di una singola bicicletta."
         },
         bikes: {
             title: "Le Nostre Biciclette",
@@ -251,7 +252,8 @@ const translations = {
                 "7 giorni": "7 days",
                 "15 giorni": "15 days",
                 "30 giorni": "30 days"
-            }
+            },
+            perBikeNote: "* Prices refer to the rental of a single bike."
         },
         bikes: {
             title: "Our Bikes",
