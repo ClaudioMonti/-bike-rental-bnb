@@ -393,6 +393,203 @@ const translations = {
             successText: "The PDF has been downloaded. Remember to send it signed to the owner together with the payment!",
             closeSuccess: "Close"
         }
+    },
+    fr: {
+        nav: {
+            home: "Accueil",
+            howItWorks: "Comment ça marche",
+            pricing: "Tarifs",
+            contacts: "Contacts",
+            payments: "Paiements",
+            calendar: "Disponibilités",
+            routes: "Itinéraires",
+            faq: "FAQ"
+        },
+        hero: {
+            title: "Explorez la Toscane à vélo !",
+            subtitle: "Louez l'un de nos vélos et profitez de votre aventure"
+        },
+        howItWorks: {
+            title: "Comment ça marche",
+            step1: {
+                title: "Scannez le QR Code",
+                desc: "Scannez le QR code avec votre smartphone pour accéder à la réservation."
+            },
+            step2: {
+                title: "Choisissez votre tarif",
+                desc: "Sélectionnez le tarif qui correspond le mieux à vos besoins."
+            },
+            step3: {
+                title: "Contactez Claudio",
+                desc: "Contactez Claudio pour vous mettre d'accord sur votre choix. Les coordonnées se trouvent en bas de la page."
+            },
+            step4: {
+                title: "Recevez les codes",
+                desc: "Nous vous enverrons les codes pour déverrouiller les cadenas des vélos."
+            },
+            step5: {
+                title: "Bonne aventure !",
+                desc: "Profitez de votre aventure à vélo !"
+            }
+        },
+        pricing: {
+            title: "Nos Tarifs",
+            plans: {
+                "Mezza Giornata": "Demi-journée",
+                "Giornata Intera": "Journée complète",
+                "3 Giorni": "3 jours",
+                "Settimanale": "Hebdomadaire",
+                "15 Giorni": "15 jours",
+                "Mensile": "Mensuel"
+            },
+            durations: {
+                "4 ore": "4 heures",
+                "24 ore": "24 heures",
+                "3 giorni": "3 jours",
+                "7 giorni": "7 jours",
+                "15 giorni": "15 jours",
+                "30 giorni": "30 jours"
+            },
+            perBikeNote: "* Les prix correspondent à la location d'un seul vélo."
+        },
+        bikes: {
+            title: "Nos Vélos",
+            names: {
+                "Bici 1 - Mountain Bike": "Vélo 1 - VTT",
+                "Bici 2 - Mountain Bike": "Vélo 2 - VTT"
+            },
+            descriptions: {
+                "Mountain bike per percorsi avventurosi": "VTT pour les sentiers aventureux",
+                "Bicicletta da città comoda e veloce": "Vélo de ville confortable et rapide"
+            },
+            status: {
+                "Disponibile": "Disponible",
+                "Noleggiata": "Loué",
+                "In Manutenzione": "En maintenance"
+            }
+        },
+        contacts: {
+            title: "Contacts",
+            subtitle: "Contactez-nous pour réserver ou pour toute information",
+            phone: "Téléphone",
+            phoneApps: "WhatsApp, Telegram, SMS, Appels",
+            airbnb: "Contactez-nous via le chat Airbnb"
+        },
+        cta: {
+            title: "Prêt pour votre aventure à vélo ?",
+            subtitle: "Réservez maintenant et commencez à explorer !"
+        },
+        payments: {
+            title: "Modes de Paiement",
+            subtitle: "Nous acceptons les modes de paiement suivants :",
+            paypalAlt: "ou envoyez à : claudiomonti9720@gmail.com",
+            bankTransfer: "Virement Revolut",
+            accountHolder: "Titulaire : Claudio Monti"
+        },
+        footer: {
+            rights: "Tous droits réservés.",
+            contacts: "Contacts :"
+        },
+        gallery: {
+            title: "Galerie",
+            subtitle: "Découvrez les merveilleux paysages de la Toscane",
+            img1: "Collines Toscanes",
+            img2: "Itinéraires panoramiques",
+            img3: "Nos Vélos",
+            img4: "Couchers de soleil magiques",
+            img5: "Vignobles et Nature",
+            img6: "Aventure sur deux roues"
+        },
+        calendar: {
+            title: "Disponibilités",
+            subtitle: "Vérifiez quand les vélos sont disponibles",
+            available: "Disponible",
+            booked: "Réservé"
+        },
+        routes: {
+            title: "Itinéraires Conseillés",
+            subtitle: "Explorez les meilleurs parcours de Toscane",
+            route1: {
+                name: "Montecatini Terme et Alto",
+                desc: "Thermes historiques et village médiéval panoramique",
+                time: "⏱️ 1-2 heures",
+                level: "📈 Moyen"
+            },
+            route2: {
+                name: "Marais de Fucecchio",
+                desc: "Réserve naturelle et observation des oiseaux",
+                time: "⏱️ 1-2 heures",
+                level: "📈 Facile"
+            },
+            route3: {
+                name: "Lucques et les Remparts",
+                desc: "Ville d'art et remparts de la Renaissance",
+                time: "⏱️ 2-3 heures",
+                level: "📈 Facile"
+            }
+        },
+        faq: {
+            title: "Questions Fréquentes",
+            q1: "Le casque est-il inclus dans la location ?",
+            a1: "Oui, le casque est inclus gratuitement. La sécurité est notre priorité !",
+            q2: "Quels sont les horaires de retrait et de restitution ?",
+            a2: "Les horaires sont flexibles et à convenir directement avec Claudio.",
+            q3: "Qui est responsable des vélos ?",
+            a3: "Le client est responsable du vélo pendant la location. Tout dommage ou vol sera à la charge du client.",
+            q5: "Le cadenas et les lumières sont-ils inclus ?",
+            a5: "Oui, chaque vélo est équipé d'un cadenas à code et de lumières avant et arrière."
+        },
+        agreement: {
+            title: "Contrat de Location de Vélo",
+            subtitle: "Accord entre le propriétaire et le client pour le service de location de vélos",
+            openButton: "Signer le Contrat",
+            art1: {
+                title: "Art. 1 - Objet du Contrat",
+                text: "Le présent accord régit la location d'un ou plusieurs vélos mis à disposition par le propriétaire de l'hébergement (ci-après \"Propriétaire\") au client (ci-après \"Client\") pour un usage récréatif et personnel pendant le séjour."
+            },
+            art2: {
+                title: "Art. 2 - Obligations du Client",
+                item1: "Utiliser le vélo avec soin et dans le respect du code de la route",
+                item2: "Porter le casque de protection fourni pendant l'utilisation",
+                item3: "Restituer le vélo dans les mêmes conditions que lors de la réception",
+                item4: "Ne pas prêter le vélo à des tiers",
+                item5: "Utiliser le cadenas fourni pour sécuriser le vélo pendant les arrêts",
+                item6: "Informer rapidement le Propriétaire de tout dysfonctionnement ou dommage"
+            },
+            art3: {
+                title: "Art. 3 - Responsabilité",
+                text: "Le Client est responsable du vélo depuis le moment de la prise en charge jusqu'à la restitution. Tout dommage, vol ou perte sera à la charge du Client. Le Propriétaire décline toute responsabilité pour les blessures ou dommages causés à des tiers lors de l'utilisation du vélo."
+            },
+            art4: {
+                title: "Art. 4 - Tarifs et Paiement",
+                text: "Le coût de la location est établi selon le tarif en vigueur et doit être réglé au moment du retrait du vélo ou via les méthodes de paiement indiquées (PayPal, virement Revolut). Le Client doit également envoyer une photo d'une pièce d'identité en cours de validité."
+            },
+            art5: {
+                title: "Art. 5 - Restitution",
+                text: "Le vélo doit être restitué à l'heure convenue. Tout retard dans la restitution entraînera la facturation d'un tarif journalier supplémentaire."
+            },
+            art6: {
+                title: "Art. 6 - Dommages et Pénalités",
+                item1: "Dommages légers (égratignures, usure anormale) : facturation jusqu'à 50 EUR",
+                item2: "Dommages graves (composants cassés) : facturation jusqu'à 150 EUR",
+                item3: "Vol ou perte : facturation de 500 EUR"
+            },
+            art7: {
+                title: "Art. 7 - Conditions de Validité",
+                text: "La location est subordonnée à la signature du présent contrat par le Client et au paiement simultané du montant dû. Le contrat signé doit être envoyé au Propriétaire avant le retrait du vélo."
+            },
+            firstName: "Prénom",
+            lastName: "Nom",
+            date: "Date",
+            signatureTitle: "Signature du Client",
+            signaturePlaceholder: "Signez ici avec votre doigt ou votre souris",
+            clearSignature: "Effacer la signature",
+            acceptTerms: "Je déclare avoir lu, compris et accepté toutes les conditions du présent contrat de location. Je m'engage à respecter les règles indiquées ci-dessus et à prendre la responsabilité du vélo pendant la période de location. Je m'engage également à retourner ce contrat signé accompagné du paiement.",
+            submit: "Signer et Télécharger le PDF",
+            successTitle: "Contrat Signé !",
+            successText: "Le PDF a été téléchargé. N'oubliez pas de l'envoyer signé au propriétaire avec le paiement !",
+            closeSuccess: "Fermer"
+        }
     }
 };
 
@@ -426,16 +623,13 @@ function applyTranslations() {
     // Aggiorna i pulsanti lingua (evidenzia quello attivo)
     const langIt = document.getElementById('lang-it');
     const langEn = document.getElementById('lang-en');
+    const langFr = document.getElementById('lang-fr');
 
-    if (langIt && langEn) {
-        if (currentLang === 'it') {
-            langIt.classList.add('active');
-            langEn.classList.remove('active');
-        } else {
-            langIt.classList.remove('active');
-            langEn.classList.add('active');
-        }
-    }
+    [langIt, langEn, langFr].forEach(btn => {
+        if (btn) btn.classList.remove('active');
+    });
+    const activeBtn = document.getElementById('lang-' + currentLang);
+    if (activeBtn) activeBtn.classList.add('active');
 
     // Aggiorna l'attributo lang dell'HTML
     document.documentElement.lang = currentLang;
@@ -481,13 +675,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Aggiungi listener ai pulsanti lingua
     const langIt = document.getElementById('lang-it');
     const langEn = document.getElementById('lang-en');
+    const langFr = document.getElementById('lang-fr');
 
-    if (langIt) {
-        langIt.addEventListener('click', () => setLanguage('it'));
-    }
-    if (langEn) {
-        langEn.addEventListener('click', () => setLanguage('en'));
-    }
+    if (langIt) langIt.addEventListener('click', () => setLanguage('it'));
+    if (langEn) langEn.addEventListener('click', () => setLanguage('en'));
+    if (langFr) langFr.addEventListener('click', () => setLanguage('fr'));
 
     // Aggiungi listener al toggle tema
     const themeToggle = document.getElementById('theme-toggle');

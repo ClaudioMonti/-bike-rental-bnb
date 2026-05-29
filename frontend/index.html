@@ -36,6 +36,9 @@
                         <button id="lang-en" class="lang-circle" title="English">
                             <img src="https://flagcdn.com/w40/gb.png" alt="English">
                         </button>
+                        <button id="lang-fr" class="lang-circle" title="Français">
+                            <img src="https://flagcdn.com/w40/fr.png" alt="Français">
+                        </button>
                     </li>
                     <li>
                         <button id="theme-toggle" class="theme-toggle" title="Cambia tema">
@@ -716,8 +719,8 @@
                 doc.setFontSize(8.5);
                 doc.setTextColor(26, 26, 46);
 
-                var nameLabel = (lang === 'it') ? 'Nome e Cognome:' : 'Full Name:';
-                var dateLabel = (lang === 'it') ? 'Data:' : 'Date:';
+                var nameLabel = lang === 'it' ? 'Nome e Cognome:' : lang === 'fr' ? 'Nom et Prénom :' : 'Full Name:';
+                var dateLabel = lang === 'it' ? 'Data:' : lang === 'fr' ? 'Date :' : 'Date:';
                 var fullName = firstNameEl.value.trim() + ' ' + lastNameEl.value.trim();
 
                 doc.text(nameLabel, margin, y);
@@ -733,7 +736,7 @@
                 // Signature
                 doc.setFont('helvetica', 'bold');
                 doc.setFontSize(8.5);
-                var sigLabel = (lang === 'it') ? 'Firma del Cliente:' : 'Customer Signature:';
+                var sigLabel = lang === 'it' ? 'Firma del Cliente:' : lang === 'fr' ? 'Signature du Client :' : 'Customer Signature:';
                 doc.text(sigLabel, margin, y);
                 y += 2;
 
@@ -741,7 +744,7 @@
                 doc.addImage(sigData, 'PNG', margin, y, 55, 22);
 
                 // Owner countersign
-                var ownerLabel = (lang === 'it') ? 'Controfirma Proprietario:' : 'Owner Countersignature:';
+                var ownerLabel = lang === 'it' ? 'Controfirma Proprietario:' : lang === 'fr' ? 'Contresignature Propriétaire :' : 'Owner Countersignature:';
                 doc.text(ownerLabel, pageWidth / 2 + 10, y - 2);
                 doc.setDrawColor(180, 180, 180);
                 doc.setLineWidth(0.3);
